@@ -15,7 +15,7 @@ WORKDIR /
 RUN chmod 700 /root
 
 COPY startup.sh /startup.sh
-COPY setup.sh.sh /root/setup.sh.sh
+COPY test.sh.sh /root/test.sh.sh
 RUN echo services: files sss >> /etc/nsswitch.conf
 # RUN echo SELINUX=disabled > /etc/selinux/config
 COPY mk-pw.sh /mk-pw.sh
