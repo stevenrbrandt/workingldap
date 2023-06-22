@@ -28,4 +28,4 @@ Once in, run the following command s:
   $ bash test.sh
 ```
 
-In the output, you should see that the user 'yoda' was successfully added, while the user 'spock' could not be added.
+In the output, you should see that the user 'yoda' was successfully added, while the user 'spock' could not be added because doing so would violate the unique uidNumber constraint.
