@@ -1,0 +1,4 @@
+FROM  osixia/openldap:1.5.0
+
+# By default, ldap does not constrain uidNumber to be unique. This fixes that problem.
+ADD uniq.ldif /container/service/slapd/assets/config/bootstrap/ldif/

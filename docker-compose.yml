@@ -1,0 +1,37 @@
+version: '2'
+
+volumes:
+    ldap_data:
+    slapd_data:
+
+services:
+
+  ldap:
+    #image: osixia/openldap:1.5.0
+    build:
+        context: .
+        dockerfile: Dockerfile2
+    image: ldapserverimage
+    hostname: server.jedi.org
+    container_name: ldap
+
+    # Persisting these directories will
+    # persist your ldap database.
+    volumes:
+        - ldap_data:/var/lib/ldap
+        - slapd_data:/etc/ldap/slapd.d
+    env_file:
+        - ldap-vars.env
+    #ports:
+    #    - 389:389
+    #    - 636:636
+
+  ldapclient:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    image: ldapclientimage
+    container_name: ldapclient
+    hostname: client.jedi.org
+    env_file:
+        - ldap-vars.env
