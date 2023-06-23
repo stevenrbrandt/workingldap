@@ -2,8 +2,7 @@ FROM ubuntu:20.04
 RUN apt update 
 
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt install -y ldap-utils vim sssd-ldap perl-modules-5.30 libpam-ldapd apt-file dialog ca-certificates libnss-ldap libpam-modules libpam-sss
-RUN apt-file update
+RUN apt install -y ldap-utils vim sssd-ldap libpam-ldapd ca-certificates libnss-ldap libpam-sss
 RUN update-ca-certificates - update /etc/ssl/certs and ca-certificates.crt
 
 COPY ldap-vars.env /ldap-vars.env
